@@ -1,0 +1,59 @@
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:cc="http://creativecommons.org/ns#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:svg="http://www.w3.org/2000/svg" version="1.0" width="463.89" height="438.88">
+  <rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
+
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>home</dc:title>
+        <dc:date>2008-10-08T17:41:00</dc:date>
+        <dc:description>black home icon</dc:description>
+        <dc:source>http://openclipart.org/detail/19535/home-by-dynnamitt</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>dynnamitt</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>home</rdf:li>
+            <rdf:li>house</rdf:li>
+            <rdf:li>icon</rdf:li>
+            <rdf:li>image</rdf:li>
+            <rdf:li>media</rdf:li>
+            <rdf:li>png</rdf:li>
+            <rdf:li>public domain</rdf:li>
+            <rdf:li>silhouette</rdf:li>
+            <rdf:li>svg</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g class="currentLayer" style="">
+    <title>Layer 1</title>
+    <g id="layer1" class="selected" fill-opacity="1" fill="#ef6e2c">
+      <path id="rect2391" d="m394.8109992980957,223.10000366210937 zl-162.82,-144.19 l-162.9,144.25 v206.12 c0,5.33 4.3,9.6 9.620000000000001,9.6 h101.81 v-90.38 c0,-5.32 4.27,-9.620000000000001 9.6,-9.620000000000001 h83.65 c5.33,0 9.6,4.3 9.6,9.620000000000001 v90.38 h101.84 c5.32,0 9.6,-4.27 9.6,-9.6 v-206.18 zm-325.72,0.06000000000000001 z" fill="#ef6e2c"/>
+      <path id="path2399" d="m231.0509992980957,0.0000036621093499888957 l-231.05,204.59 l24.338,27.45 l207.65,-183.88 l207.61,183.88 l24.29,-27.45 l-231,-204.59 l-0.9,1.04 l-0.9400000000000001,-1.04 z" fill="#ef6e2c"/>
+      <path id="rect2404" d="m69.09099929809571,29.450003662109395 h58.57 l-0.51,34.69 l-58.06,52.45 v-87.14 z" fill="#ef6e2c"/>
+    </g>
+  </g>
+</svg>

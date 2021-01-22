@@ -1,0 +1,13 @@
+<div class="main-content">
+  <div class="content">
+    <div class="image-container">
+      <img [src]="product.photo" />
+    </div>
+    <div class="text-container">{{ product.name }}</div>
+    <div class="price-container">
+      {{ product.price | currency: "EUR" }}
+    </div>
+
+    <a class="button-container">Adicionar ao Carrinho</a>
+  </div>
+</div>

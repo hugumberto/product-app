@@ -1,0 +1,16 @@
+.main-content {
+  padding: 20px;
+
+  flex: 1;
+}
+.content {
+  border: solid 1px #eebfa7;
+  min-height: 300px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: space-around;
+}

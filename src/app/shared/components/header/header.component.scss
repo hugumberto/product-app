@@ -1,0 +1,55 @@
+.header {
+  background-color: #2d383e;
+  padding: 0 10px;
+  color: #ef6e2c;
+  flex: 1;
+  height: 70px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+#nbArticles {
+  color: #ef6e2c;
+  display: block;
+  font-size: 11px;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  top: 30px;
+  left: 10px;
+  right: 0;
+  font-weight: 900;
+  background-color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 18px;
+  padding-top: 2px;
+}
+.basket {
+  background-image: url("~/src/assets/images/shopping-basket-basket-svgrepo-com.svg");
+  width: 50px;
+  height: 55px;
+}
+.home {
+  background-image: url("~/src/assets/images/home.svg");
+  width: 50px;
+  height: 50px;
+}
+.element {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: #ef6e2c;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

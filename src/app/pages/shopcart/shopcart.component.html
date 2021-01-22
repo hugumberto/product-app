@@ -1,0 +1,58 @@
+<div class="main-content">
+  <div class="content">
+    <div class="produc-list">
+      <h2>Meu Carrinho</h2>
+      <div class="product-item" *ngFor="let item of purchase; index as i">
+        <div class="content-product-item">
+          <div class="image-container">
+            <img [src]="item.product.photo" />
+          </div>
+          <div class="content-description">
+            <div>
+              <div class="text-container">{{ item.product.name }}</div>
+              <div class="amount-container">
+                <button
+                  type="button"
+                  (click)="handleAmount(i, false)"
+                  [disabled]="item.amount === 1"
+                >
+                  -
+                </button>
+
+                <span>{{ item.amount }}</span>
+                <button type="button" (click)="handleAmount(i, true)">+</button>
+              </div>
+            </div>
+            <div class="price-container">
+              <div>
+                <span class="price-amount">
+                  {{ item.product.price * item.amount | currency: "EUR" }}
+                </span>
+                <br />
+                <span class="price-und">
+                  {{ item.product.price | currency: "EUR" }}/ud
+                </span>
+              </div>
+              <button class="remove" type="button" (click)="handleRemove(i)">
+                <img
+                  src="../../../assets/images/trash.svg"
+                  alt="Kiwi standing on oval"
+                />
+                Remover
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="content">
+    <div class="sub-total">
+      <div class="content-value">
+        <h3>Resumo do pedido</h3>
+        <span>{{ subTotalValue | currency: "EUR" }}</span>
+      </div>
+    </div>
+  </div>
+</div>
