@@ -43,8 +43,9 @@
     }
 
     .content-description {
+      width: 300px;
       padding-left: 10px;
-      height: 130px;
+      min-height: 130px;
       display: flex;
       flex-wrap: nowrap;
       flex-direction: column;
@@ -130,6 +131,11 @@
 @media screen and (max-width: 456px) {
   .produc-list {
     width: 100% !important;
+    .product-item {
+      .content-description {
+        width: 150px !important;
+      }
+    }
   }
   .image-container {
     img {

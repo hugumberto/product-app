@@ -2,7 +2,10 @@
   <div class="content">
     <div class="produc-list">
       <h2>Meu Carrinho</h2>
-      <div class="product-item" *ngFor="let item of purchase; index as i">
+      <div
+        class="product-item"
+        *ngFor="let item of purchases$ | async; index as i"
+      >
         <div class="content-product-item">
           <div class="image-container">
             <img [src]="item.product.photo" />
@@ -13,14 +16,14 @@
               <div class="amount-container">
                 <button
                   type="button"
-                  (click)="handleAmount(i, false)"
+                  (click)="minusPurchase(item)"
                   [disabled]="item.amount === 1"
                 >
                   -
                 </button>
 
                 <span>{{ item.amount }}</span>
-                <button type="button" (click)="handleAmount(i, true)">+</button>
+                <button type="button" (click)="addPurchase(item)">+</button>
               </div>
             </div>
             <div class="price-container">
@@ -33,11 +36,12 @@
                   {{ item.product.price | currency: "EUR" }}/ud
                 </span>
               </div>
-              <button class="remove" type="button" (click)="handleRemove(i)">
-                <img
-                  src="../../../assets/images/trash.svg"
-                  alt="Kiwi standing on oval"
-                />
+              <button
+                class="remove"
+                type="button"
+                (click)="deletePurchase(item.product.id)"
+              >
+                <img src="/assets/images/trash.svg" alt="trash can" />
                 Remover
               </button>
             </div>
@@ -51,7 +55,7 @@
     <div class="sub-total">
       <div class="content-value">
         <h3>Resumo do pedido</h3>
-        <span>{{ subTotalValue | currency: "EUR" }}</span>
+        <span>{{ totalBasket$ | async | currency: "EUR" }}</span>
       </div>
     </div>
   </div>

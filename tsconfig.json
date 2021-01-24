@@ -2,7 +2,16 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
+    "paths": {
+      "@assets/*": ["assets/*"],
+      "@actions/*": ["app/shared/actions/*"],
+      "@components/*": ["app/shared/components/*"],
+      "@effects/*": ["app/shared/effects/*"],
+      "@entities/*": ["app/shared/entities/*"],
+      "@reducers/*": ["app/shared/reducers/*"],
+      "@services/*": ["app/shared/actions/*"]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,

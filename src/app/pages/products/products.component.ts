@@ -1,6 +1,10 @@
+import { addPurchase } from '@actions/purchase.action';
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from 'src/app/shared/entities/product.entity';
-import { ProductService } from 'src/app/shared/services/product.service';
+import { IProduct } from '@entities/product.entity';
+import { IPurchase } from '@entities/purchase.entity';
+import { Store } from '@ngrx/store';
+import { IAppState } from 'app/app-state';
+import { ProductService } from 'app/shared/services/product.service';
 
 @Component({
   selector: 'app-products',
@@ -9,7 +13,11 @@ import { ProductService } from 'src/app/shared/services/product.service';
 })
 export class ProductsComponent implements OnInit {
   products!: IProduct[];
-  constructor(private productService: ProductService) {}
+  succesModal: boolean = false;
+  constructor(
+    private productService: ProductService,
+    private store: Store<IAppState>
+  ) {}
 
   ngOnInit(): void {
     this.fetchProducts();
@@ -19,5 +27,12 @@ export class ProductsComponent implements OnInit {
     this.productService.getAll().subscribe((response: IProduct[]) => {
       this.products = response;
     });
+  }
+  onAddPurchase(purchase: any) {
+    this.store.dispatch(addPurchase({ purchase }));
+    this.succesModal = true;
+    setTimeout(() => {
+      this.succesModal = false;
+    }, 2000);
   }
 }

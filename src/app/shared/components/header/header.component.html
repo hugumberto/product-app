@@ -1,7 +1,9 @@
 <div class="header">
   <h1>{{ pageTitle }}</h1>
   <a class="element basket" href="shopcart" *ngIf="!isShowHome">
-    <span id="nbArticles">1</span>
+    <span id="nbArticles" *ngIf="(amountBasket$ | async) !== 0">{{
+      amountBasket$ | async
+    }}</span>
   </a>
   <a class="element home" href="" *ngIf="isShowHome"> </a>
 </div>

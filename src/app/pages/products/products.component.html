@@ -1,8 +1,12 @@
 <div class="main-content">
+  <div [class]="succesModal ? 'show modal' : 'modal'">
+    Produto adicionado Ao carrinho
+  </div>
   <div class="content">
     <app-card
       *ngFor="let item of products; index as i"
       [product]="item"
+      (addPurchaseEmitter)="onAddPurchase($event)"
     ></app-card>
   </div>
 </div>

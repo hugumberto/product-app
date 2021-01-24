@@ -14,3 +14,19 @@
   align-items: flex-start;
   align-content: space-around;
 }
+.show {
+  opacity: 1 !important;
+}
+.modal {
+  background-color: #096625;
+  opacity: 0;
+  transition: 0.5s ease-in-out all;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+  width: 340px;
+  right: 0;
+  position: absolute;
+  color: white;
+  font-weight: bold;
+}

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { select, Store } from '@ngrx/store';
+import { IAppState } from 'app/app-state';
+import { Observable } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
 
 @Component({
@@ -11,10 +14,14 @@ import { filter, map, mergeMap } from 'rxjs/operators';
 export class HeaderComponent implements OnInit {
   pageTitle!: string;
   isShowHome: boolean | undefined;
+
+  purchases$ = this.store.pipe(select((state) => state.purchases));
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private title: Title
+    private title: Title,
+    private store: Store<IAppState>
   ) {}
 
   ngOnInit() {
@@ -36,5 +43,10 @@ export class HeaderComponent implements OnInit {
         this.pageTitle = event.title;
         this.isShowHome = event.isShowHome;
       });
+  }
+  get amountBasket$(): Observable<number> {
+    return this.purchases$.pipe(
+      map((purchase) => purchase.reduce((total, p) => total + p.amount, 0))
+    );
   }
 }

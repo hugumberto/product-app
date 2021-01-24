@@ -1,5 +1,14 @@
+import {
+  addPurchase,
+  deletePurchase,
+  minusPurchase,
+} from '@actions/purchase.action';
 import { Component, OnInit } from '@angular/core';
-import { IPurchase } from 'src/app/shared/entities/purchase.entity';
+import { IPurchase } from '@entities/purchase.entity';
+import { select, Store } from '@ngrx/store';
+import { IAppState } from 'app/app-state';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-shopcart',
@@ -7,48 +16,43 @@ import { IPurchase } from 'src/app/shared/entities/purchase.entity';
   styleUrls: ['./shopcart.component.scss'],
 })
 export class ShopcartComponent implements OnInit {
-  purchase: IPurchase[];
-  constructor() {
-    this.purchase = [
-      {
-        product: {
-          id: 1,
-          name: 'Generic Steel Towels',
-          price: 660.0,
-          photo: 'http://lorempixel.com/640/480/cats',
-        },
-        amount: 1,
-      },
-      {
-        product: {
-          id: 1,
-          name: 'Generic Steel Towels',
-          price: 660.0,
-          photo: 'http://lorempixel.com/640/480/cats',
-        },
-        amount: 1,
-      },
-    ];
-  }
+  purchases$ = this.store.pipe(select((state) => state.purchases));
+  constructor(private store: Store<IAppState>) {}
 
   ngOnInit(): void {}
 
+  get totalBasket$(): Observable<number> {
+    return this.purchases$.pipe(
+      map((purchase) =>
+        purchase.reduce((total, p) => total + p.amount * p.product.price, 0)
+      )
+    );
+  }
   get subTotalValue(): number {
     let sum = 0;
-    if (this.purchase !== null && this.purchase.length > 0)
-      this.purchase.forEach((e) => {
-        sum += e.amount * e.product.price;
-      });
+    // if (this.purchase !== null && this.purchase.length > 0)
+    //   this.purchase.forEach((e) => {
+    //     sum += e.amount * e.product.price;
+    //   });
     return sum;
   }
+  addPurchase(purchase: IPurchase) {
+    this.store.dispatch(addPurchase({ purchase }));
+  }
+  minusPurchase(purchase: IPurchase) {
+    this.store.dispatch(minusPurchase({ purchase }));
+  }
+  deletePurchase(productId: number) {
+    this.store.dispatch(deletePurchase({ productId }));
+  }
   handleAmount(idx: number, isPlus: boolean) {
-    if (isPlus) {
-      this.purchase[idx].amount++;
-    } else {
-      this.purchase[idx].amount--;
-    }
+    // if (isPlus) {
+    //   this.purchase[idx].amount++;
+    // } else {
+    //   this.purchase[idx].amount--;
+    // }
   }
   handleRemove(idx: number) {
-    this.purchase.splice(idx, 1);
+    // this.purchase.splice(idx, 1);
   }
 }
