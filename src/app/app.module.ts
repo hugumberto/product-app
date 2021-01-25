@@ -2,7 +2,10 @@ import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import locale from '@angular/common/locales/es';
 import { LOCALE_ID, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  BrowserTransferStateModule,
+} from '@angular/platform-browser';
 import {
   ActionReducer,
   ActionReducerMap,
@@ -24,6 +27,7 @@ registerLocaleData(locale, 'es');
   declarations: [AppComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserTransferStateModule,
     HttpClientModule,
     AppRoutingModule,
     SharedModule,

@@ -2,6 +2,10 @@ import { enableProdMode } from '@angular/core';
 
 import { environment } from './environments/environment';
 
+import 'localstorage-polyfill';
+
+global['localStorage'] = localStorage;
+
 if (environment.production) {
   enableProdMode();
 }

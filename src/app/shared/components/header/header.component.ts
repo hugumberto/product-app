@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { IAppState } from 'app/app-state';
+import { SeoService } from 'app/shared/services/seo.service';
 import { Observable } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
 
@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private title: Title,
+    private seoService: SeoService,
     private store: Store<IAppState>
   ) {}
 
@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
         mergeMap((route) => route.data)
       )
       .subscribe((event) => {
-        this.title.setTitle(event.title);
+        this.seoService.updateTitle(event.title);
 
         this.pageTitle = event.title;
         this.isShowHome = event.isShowHome;

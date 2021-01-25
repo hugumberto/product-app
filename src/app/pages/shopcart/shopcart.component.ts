@@ -10,6 +10,8 @@ import { IAppState } from 'app/app-state';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { SeoService } from 'app/shared/services/seo.service';
+
 @Component({
   selector: 'app-shopcart',
   templateUrl: './shopcart.component.html',
@@ -17,7 +19,7 @@ import { map } from 'rxjs/operators';
 })
 export class ShopcartComponent implements OnInit {
   purchases$ = this.store.pipe(select((state) => state.purchases));
-  constructor(private store: Store<IAppState>) {}
+  constructor(private store: Store<IAppState>, private seo: SeoService) {}
 
   ngOnInit(): void {}
 

@@ -5,6 +5,7 @@ import { IPurchase } from '@entities/purchase.entity';
 import { Store } from '@ngrx/store';
 import { IAppState } from 'app/app-state';
 import { ProductService } from 'app/shared/services/product.service';
+import { SeoService } from 'app/shared/services/seo.service';
 
 @Component({
   selector: 'app-products',
